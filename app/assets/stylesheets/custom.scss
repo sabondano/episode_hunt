@@ -1,5 +1,5 @@
 #body-welcome {
-  background: linear-gradient(to right, #FF0018 0%, #FF0018 55%, #FF192F 100%);
+  background: linear-gradient(to right, #FF0018 0%, #FF0018 55%, #FF3700 100%);
   .container-welcome {
     padding-top: 30vh;
     text-align: center;
@@ -21,8 +21,23 @@
 
     a.btn.btn-lg.btn-default.btn-welcome:hover {
       background: #fff;
-      color: #FF192F;
+      color: #FF3700;
     }
   }
 }
 
+body {
+  background-color: #f5f8fa;
+}
+
+.navbar-dashboard {
+  background-color: #fff;
+  .logo {
+    display: inline-block;
+    width: 30px;
+    height: 26px;
+    position: absolute;
+    left: 50%;
+    margin-top: 14px;
+  }
+}

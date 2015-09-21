@@ -1,0 +1,28 @@
+#body-welcome {
+  background: linear-gradient(to right, #FF0018 0%, #FF0018 55%, #FF192F 100%);
+  .container-welcome {
+    padding-top: 30vh;
+    text-align: center;
+    .welcome {
+      color: white;
+      font-weight: 100;
+    }
+    h3.welcome {
+      font-weight: 200;
+      opacity: 0.5;
+    }
+    a.btn.btn-lg.btn-default.btn-welcome {
+      width: 150px;
+      color: white;
+      margin-top: 5vh;
+      background-color: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    a.btn.btn-lg.btn-default.btn-welcome:hover {
+      background: #fff;
+      color: #FF192F;
+    }
+  }
+}
+

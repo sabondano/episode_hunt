@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     user.provider           = auth_info.provider
     user.screen_name        = auth_info.extra.raw_info.screen_name
     user.uid                = auth_info.uid
+    user.profile_image_url  = auth_info.extra.raw_info.profile_image_url
     user.oauth_token        = auth_info.credentials.token
     user.oauth_token_secret = auth_info.credentials.secret
     user.save

@@ -4,10 +4,10 @@
       <div class="dashboard-profile-card">
         <div class="row">
           <div class="col-sm-12">
-            <img class="thumbnail avatar" src="http://pbs.twimg.com/profile_images/519994762581925888/QHOq7CeP_normal.jpeg"> 
+            <img class="thumbnail avatar" src="<%= current_user.profile_image_url %>"> 
             <div class="user-fields">
-              <h4>Sebastian Abondano</h4>
-              <p class="text-muted screen-name">@sabondano1</p>
+              <h4><%= current_user.name %></h4>
+              <p class="text-muted screen-name">@<%= current_user.screen_name %></p>
             </div>
           </div>
         </div>

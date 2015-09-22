@@ -1,5 +1,5 @@
 #body-welcome {
-  background: linear-gradient(to right, #FF0018 0%, #FF0018 55%, #FF3700 100%);
+  background: linear-gradient(to right, #FF0018 0%, #FF3700 100%);
   .container-welcome {
     padding-top: 30vh;
     text-align: center;
@@ -27,7 +27,7 @@
 }
 
 body {
-  background-color: #f5f8fa;
+  background-color: #fdf7f7;
 }
 
 .navbar-dashboard {
@@ -39,5 +39,85 @@ body {
     position: absolute;
     left: 50%;
     margin-top: 14px;
+  }
+}
+
+.subnavbar {
+  margin-top: 50px;
+}
+
+.dashboard-profile-card {
+  border: 1px solid #e1e8ed;
+  background: #FFF;
+  border-radius: 6px; 
+  .screen-name {
+    margin-top: -10px;
+  }
+  .avatar {
+    float: left;
+    background-color: #fff;
+    border-radius: 6px;
+    margin: 10px 10px 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+  }
+  .user-fields {
+    margin-top: 0px;
+  }
+  .stats {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    .first-stat-group {
+      padding-left: 10px;
+    }
+    .stat-label {
+      color: #8c9ca9; 
+      font-size: 10px;
+    }
+    .stat-value {
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(232, 22, 0, 0.5);
+    }
+  }
+}
+
+.episode {
+  border: 1px solid #e1e8ed;
+  background: #FFF;
+  border-radius: 6px; 
+  padding: 12px;
+  &:hover {
+    .upvotes {
+      font-size: 16px;
+      transition: font-size .2s;
+    }
+  }
+  .upvotes {
+    text-align: center;
+    margin-top: 35px;
+    &:hover {
+      color: rgba(255, 55, 0, 0.8);
+    }
+  }
+  .upvote-value {
+    display: block;
+  }
+  .thumbnail-podcast {
+    border-radius: 6px;
+    vertical-align: top;
+  }
+  .episode-title {
+    margin: 0px;
+  }
+  .episode-details {
+    display: block;
+    color: #8c9ca9;
+    font-size: 13px;
+  }
+  .episode-summary {
+    margin-top: 5px;
+    color: black;
   }
 }

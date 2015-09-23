@@ -28,6 +28,11 @@ group :development, :test do
   gem 'awesome_print'
 end
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
+
 gem 'rails_12factor', group: :production
 
 ruby '2.2.2'

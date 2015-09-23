@@ -1,4 +1,6 @@
 require 'simplecov'
+require 'vcr_setup'
+require 'webmock'
 require 'helpers'
 SimpleCov.start
 

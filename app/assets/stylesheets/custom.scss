@@ -138,9 +138,8 @@ body {
     color: #8c9ca9;
     font-size: 13px;
   }
-  .episode-summary {
-    margin-top: 5px;
-    color: black;
+  audio {
+    margin-top: 20px;
   }
 }
 
@@ -148,7 +147,7 @@ body {
   display: none;
   padding-bottom: 45px;
   background-color: rgba(255, 0, 24, 0.05);
-  #episodes {
+  #episode {
     margin-bottom: 10px;
   }
   .btn-submit-episode {

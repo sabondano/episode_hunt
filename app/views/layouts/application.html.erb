@@ -8,6 +8,11 @@
 </head>
 <body>
   <%= render partial: 'layouts/navigation' %>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end %>
+  </div> <!--/container-->
   <%= yield %>
 
 </body>

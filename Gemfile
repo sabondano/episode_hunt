@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'hurley'
 
 group :development, :test do
   gem 'byebug'
@@ -24,6 +25,12 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'pry'
+  gem 'awesome_print'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'rails_12factor', group: :production

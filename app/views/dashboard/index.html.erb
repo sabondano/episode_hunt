@@ -22,6 +22,13 @@
       </div>
     </div>
     <div class="col-sm-9">
+      <div class="episode episode-submission-form">
+        <%= form_tag do %>
+          <%= label_tag "episode", "Select an episode:", class: "control-label" %>
+          <%= select_tag "episodes", options_for_select([["1"], ["2"]]), class: "form-control" %>
+          <%= submit_tag "Submit Episode", class: "btn btn-default btn-submit-episode" %>
+        <% end %>
+      </div>
       <div class="episode">
         <div class="row">
           <div class="col-sm-1 upvotes">

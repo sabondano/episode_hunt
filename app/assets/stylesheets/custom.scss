@@ -40,6 +40,28 @@ body {
     left: 50%;
     margin-top: 14px;
   }
+  .dropdown-toggle {
+    padding: 14px 40px 36px 15px;
+    width: 50px;
+    height: 35px;
+    .glyphicon-option-horizontal {
+      font-size: 24px;
+      &:hover {
+        color: rgba(232, 22, 0, 0.5);
+      }
+    }
+  }
+  #submit-episode {
+    cursor: pointer;
+    padding-top: 18px;
+    padding-bottom: 12px;
+    &:hover {
+      color: rgba(232, 22, 0, 0.5);
+    }
+    .glyphicon-plus {
+      font-size: 16px;
+    }
+  }
 }
 
 .subnavbar {
@@ -119,5 +141,19 @@ body {
   .episode-summary {
     margin-top: 5px;
     color: black;
+  }
+}
+
+.episode-submission-form {
+  display: none;
+  padding-bottom: 45px;
+  background-color: rgba(255, 0, 24, 0.05);
+  #episodes {
+    margin-bottom: 10px;
+  }
+  .btn-submit-episode {
+    background-color: rgba(255, 0, 24, 1);
+    color: white;
+    float: right;
   }
 }

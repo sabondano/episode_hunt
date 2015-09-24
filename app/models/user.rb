@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :episodes
+  has_many :votes
 
   def self.find_or_create_from_oauth(auth_info)
     user = User.find_or_create_by(provider: auth_info.provider, uid: auth_info.uid)

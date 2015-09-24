@@ -4,9 +4,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active">
-          <a href="#">
+          <%= link_to dashboard_path do %>
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
-          </a>
+          <% end %>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
-        <a href="#">Ruby Rogues</a>
+        <%=link_to "Ruby Rogues", ruby_rogues_path %>
       </li>
     </ul>
   </div>

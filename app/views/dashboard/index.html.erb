@@ -14,13 +14,13 @@
         <div class="row stats">
           <div class="col-sm-4">
             <div class="first-stat-group">
-              <span class="stat-label">UPVOTES</span>
-              <span class="stat-value">237</span>
+              <span class="stat-label">UPVOTED</span>
+              <span class="stat-value"><%= current_user.votes.count %></span>
             </div>
           </div>
           <div class="col-sm-4">
             <span class="stat-label">SUBMITTED</span>
-            <span class="stat-value"><%= @episodes.count %></span>
+            <span class="stat-value"><%= current_user.episodes.count %></span>
           </div>
         </div>
       </div>
@@ -43,8 +43,10 @@
           <div class="episode">
             <div class="row">
               <div class="col-sm-1 upvotes">
-                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                <span class="upvote-value">45</span>
+                <%= button_to vote_path(episode_id: episode.id), class: "btn btn-default btn-upvote" do %>
+                  <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                  <span class="upvote-value"><%= episode.votes.count %></span>
+                <% end %>
               </div>
               <div class="col-sm-2">
                 <img class="thumbnail-podcast" src="https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg" style="height: 110px; width: 110px;">
@@ -56,9 +58,9 @@
                 <span class="episode-details">
                   <strong>Published on:</strong> <%= episode.published_date %> |
                   <strong>Duration:</strong> <%= episode.duration %>
-                  <audio controls>
-                    <source src="<%= episode.audio_url %>" type="audio/mpeg">
-                  </audio>
+                <audio controls>
+                  <source src="<%= episode.audio_url %>" type="audio/mpeg">
+                </audio>
                 </span>
               </div>
             </div>

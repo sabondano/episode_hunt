@@ -111,15 +111,22 @@ body {
   border-radius: 6px; 
   padding: 12px;
   &:hover {
-    .upvotes {
+    .btn-upvote {
       font-size: 16px;
       transition: font-size .2s;
     }
   }
   .upvotes {
     text-align: center;
-    margin-top: 35px;
+    margin-top: 30px;
     &:hover {
+      color: rgba(255, 55, 0, 0.8);
+    }
+  }
+  .btn-upvote {
+    border: none;
+    &:hover {
+      background-color: white;
       color: rgba(255, 55, 0, 0.8);
     }
   }

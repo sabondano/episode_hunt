@@ -10,6 +10,7 @@ RSpec.describe Episode, type: :model do
       episode = Episode.create_from_title('056 RR David Heinemeier Hansson', user.id)
 
       expect(Episode.all.count).to eq(1)
+      expect(Episode.first.votes.count).to eq(1)
       expect(episode.title).to eq('056 RR David Heinemeier Hansson')
       expect(episode.link).to eq('http://devchat.tv/ruby-rogues/056-rr-david-heinemeier-hansson')
       expect(episode.published_date).to eq('Fri, 08 Jun 2012 08:00:00 -0600')

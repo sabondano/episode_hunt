@@ -31,6 +31,7 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'launchy'
 end
 
 gem 'rails_12factor', group: :production

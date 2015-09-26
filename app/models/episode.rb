@@ -3,6 +3,7 @@ class Episode < ActiveRecord::Base
 
   has_many :votes
   belongs_to :user
+  belongs_to :podcast
 
   def self.create_from_title(title, user_id)
     episode = get_episode_data(title)

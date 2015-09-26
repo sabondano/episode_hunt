@@ -6,6 +6,16 @@
     <div class="col-sm-9">
       <div class="episode episode-submission-form">
         <%= form_tag('/episodes') do %>
+          <%= label_tag "podcast", "Select a podcast:", class: "control-label" %>
+          <%= 
+            select_tag "podcast",
+              options_from_collection_for_select(@podcasts, "id", "name"),
+              class: "form-control",
+              'data-remote': 'true',
+              'data-url': url_for(controller: 'episodes', action: 'get_episodes_data'),
+              'data-type': 'json'
+            %>
+
           <%= label_tag "episode", "Select an episode:", class: "control-label" %>
           <%= select_tag "episode", options_for_select(@rr_episode_titles), class: "form-control" %>
           <%= submit_tag "Submit Episode", class: "btn btn-default btn-submit-episode" %>
@@ -27,7 +37,7 @@
                 <% end %>
               </div>
               <div class="col-sm-2">
-                <img class="thumbnail-podcast" src="https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg" style="height: 110px; width: 110px;">
+                <img class="thumbnail-podcast" src="<%= episode.podcast.image %>" style="height: 110px; width: 110px;">
               </div>
               <div class="col-sm-9">
                 <h3 class="episode-title">

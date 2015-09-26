@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/get_episodes_data', to: 'episodes#get_episodes_data'
   get '/ruby_rogues', to: 'episodes#ruby_rogues'
   post '/vote', to: 'votes#create'
   post '/episodes', to: 'episodes#create'

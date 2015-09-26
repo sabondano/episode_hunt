@@ -6,8 +6,12 @@ RSpec.describe Episode, type: :model do
       expect(Episode.all.count).to eq(0)
 
       user = User.create(screen_name: 'sabondano1')
+      podcast = Podcast.create(name: "Ruby Rogues",
+                               feed_url: "http://feeds.feedwrench.com/RubyRogues.rss",
+                               image: "https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg",
+                               link: "http://rubyrogues.com")
 
-      episode = Episode.create_from_title('056 RR David Heinemeier Hansson', user.id)
+      episode = Episode.create_from_title(podcast.id, '056 RR David Heinemeier Hansson', user.id)
 
       expect(Episode.all.count).to eq(1)
       expect(Episode.first.votes.count).to eq(1)
@@ -20,16 +24,20 @@ RSpec.describe Episode, type: :model do
   end
 
   it 'will not create an episode unless the title is unique' do
-    VCR.use_cassette 'model/episode_create_from_title' do
+    VCR.use_cassette 'model/episode_create_from_title_only_if_title_unique' do
       expect(Episode.all.count).to eq(0)
 
       user = User.create(screen_name: 'sabondano1')
+      podcast = Podcast.create(name: "Ruby Rogues",
+                               feed_url: "http://feeds.feedwrench.com/RubyRogues.rss",
+                               image: "https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg",
+                               link: "http://rubyrogues.com")
 
-      episode_1 = Episode.create_from_title('056 RR David Heinemeier Hansson', user.id)
+      episode_1 = Episode.create_from_title(podcast.id, '056 RR David Heinemeier Hansson', user.id)
 
       expect(Episode.all.count).to eq(1)
 
-      episode_2 = Episode.create_from_title('056 RR David Heinemeier Hansson', user.id)
+      episode_2 = Episode.create_from_title(podcast.id, '056 RR David Heinemeier Hansson', user.id)
 
       expect(episode_2).to be_invalid
       expect(Episode.all.count).to eq(1)

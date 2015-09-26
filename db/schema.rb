@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923212504) do
+ActiveRecord::Schema.define(version: 20150926011801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,20 @@ ActiveRecord::Schema.define(version: 20150923212504) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "podcast_id"
   end
 
+  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id", using: :btree
   add_index "episodes", ["user_id"], name: "index_episodes_on_user_id", using: :btree
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "feed_url"
+    t.string   "image"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -51,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150923212504) do
   add_index "votes", ["episode_id"], name: "index_votes_on_episode_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "episodes", "podcasts"
   add_foreign_key "episodes", "users"
   add_foreign_key "votes", "episodes"
   add_foreign_key "votes", "users"

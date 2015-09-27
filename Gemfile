@@ -16,6 +16,8 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'hurley'
 
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

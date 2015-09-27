@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/all-episodes', to: 'episodes#all_episodes'
   get '/get_episodes_data', to: 'episodes#get_episodes_data'
-  get '/ruby_rogues', to: 'episodes#ruby_rogues'
+  get '/ruby-rogues', to: 'episodes#ruby_rogues'
   post '/vote', to: 'votes#create'
   post '/episodes', to: 'episodes#create'
   get '/auth/twitter', as: 'login'

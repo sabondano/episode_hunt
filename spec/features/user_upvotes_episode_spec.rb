@@ -39,8 +39,8 @@ feature 'user upvotes episode' do
       expect(current_path).to eq('/all-episodes')
       expect(page).to have_css(".episode", count: 2)
 
-      visit '/ruby_rogues'
-      expect(current_path).to eq('/ruby_rogues')
+      visit '/ruby-rogues'
+      expect(current_path).to eq('/ruby-rogues')
 
       within('.upvotes') do
         find(:css, 'button').click

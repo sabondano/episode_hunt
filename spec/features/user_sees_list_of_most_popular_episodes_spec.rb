@@ -63,4 +63,19 @@ feature 'user sees list of most popular episodes' do
       expect(page).to have_css(".episode", count: 4) 
     end
   end
+
+  scenario 'only ruby-rogues episodes' do
+    VCR.use_cassette('features/user_sees_list_of_most_popular_episodes') do
+      visit root_path
+
+      expect(page.status_code).to eq(200)
+
+      click_link 'Log In'
+
+      visit ruby_rogues_path
+      
+      expect(page).to have_xpath("//img[@src='https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg']", count: 1)
+      expect(page).to have_css(".episode", count: 2)
+    end
+  end
 end

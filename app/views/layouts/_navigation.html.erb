@@ -31,6 +31,11 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
+        <%= nav_link all_episodes_path do %>
+          <% "All Episodes" %>
+        <% end %>
+      </li>
+      <li>
         <%= nav_link ruby_rogues_path do %>
           <% "Ruby Rogues" %>
         <% end %>

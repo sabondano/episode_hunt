@@ -21,7 +21,7 @@
           </ul>
         </li>
         <li>
-          <a id="submit-episode"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+          <a id="show-episode-submission-form-icon"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
         </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -31,8 +31,23 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
+        <%= nav_link all_episodes_path do %>
+          <% "All Episodes" %>
+        <% end %>
+      </li>
+      <li>
         <%= nav_link ruby_rogues_path do %>
           <% "Ruby Rogues" %>
+        <% end %>
+      </li>
+      <li>
+        <%= nav_link giant_robots_path do %>
+          <% "Giant Robots" %>
+        <% end %>
+      </li>
+      <li>
+        <%= nav_link the_bike_shed_path do %>
+          <% "The Bike Shed" %>
         <% end %>
       </li>
     </ul>

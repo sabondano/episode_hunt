@@ -1,0 +1,23 @@
+<div class="dashboard-profile-card">
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="thumbnail avatar" src="<%= current_user.profile_image_url %>"> 
+      <div class="user-fields">
+        <h4><%= current_user.name %></h4>
+        <p class="text-muted screen-name">@<%= current_user.screen_name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row stats">
+    <div class="col-sm-4">
+      <div class="first-stat-group">
+        <span class="stat-label">UPVOTED</span>
+        <span class="stat-value"><%= current_user.votes.count %></span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <span class="stat-label">SUBMITTED</span>
+      <span class="stat-value"><%= current_user.episodes.count %></span>
+    </div>
+  </div>
+</div>

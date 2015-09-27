@@ -22,16 +22,17 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'simplecov', require: false
   gem 'pry'
+  gem 'database_cleaner'
   gem 'awesome_print'
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
   gem 'launchy'
+  gem 'capybara-webkit'
 end
 
 gem 'rails_12factor', group: :production

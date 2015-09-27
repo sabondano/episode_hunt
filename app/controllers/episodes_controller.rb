@@ -3,7 +3,6 @@ class EpisodesController < ApplicationController
 
   def dashboard
     @podcasts = Podcast.all
-    @rr_episode_titles = Podcast.find_by(name: "Ruby Rogues").service.episode_titles
     @episodes = current_user.episodes
   end
 

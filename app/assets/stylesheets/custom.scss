@@ -51,7 +51,7 @@ body {
       }
     }
   }
-  #submit-episode {
+  #show-episode-submission-form-icon {
     cursor: pointer;
     padding-top: 18px;
     padding-bottom: 12px;
@@ -60,6 +60,9 @@ body {
     }
     .glyphicon-plus {
       font-size: 16px;
+    }
+    &:active {
+      color: white;
     }
   }
 }
@@ -160,6 +163,11 @@ body {
   .btn-submit-episode {
     background-color: rgba(255, 0, 24, 1);
     color: white;
+    float: right;
+  }
+  #hide-submission-form-icon {
+    cursor: pointer;
+    color: grey;
     float: right;
   }
 }

@@ -4,10 +4,10 @@ feature 'user upvotes episode' do
   before do
     stub_omniauth
 
-    Podcast.create(name: "Ruby Rogues",
-                   feed_url: "http://feeds.feedwrench.com/RubyRogues.rss",
-                   image: "https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg",
-                   link: "http://rubyrogues.com")
+    podcast = Podcast.create(name: "Ruby Rogues",
+                             feed_url: "http://feeds.feedwrench.com/RubyRogues.rss",
+                             image: "https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg",
+                             link: "http://rubyrogues.com")
 
     Podcast.create(name: "The Bike Shed",
                    feed_url: "http://simplecast.fm/podcasts/282/rss",
@@ -23,7 +23,8 @@ feature 'user upvotes episode' do
 
     episode = Episode.create(title: 'unique',
                              user_id: user.id,
-                             podcast_id: 1)
+                             podcast_id: podcast.id)
+   
     Vote.create(user_id: user.id, episode_id: episode.id)
   end
 

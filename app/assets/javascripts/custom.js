@@ -1,6 +1,11 @@
 $(document).on('ready page:load', function() {
   // Make new episode submission form appear/disappear.
-  $("#submit-episode").on("click", function() { 
+  $("#show-episode-submission-form-icon").on("click", function() { 
+    $(".episode-submission-form").fadeToggle();
+  });
+
+  // Close/hide submission form
+  $("#hide-submission-form-icon").on("click", function() {
     $(".episode-submission-form").fadeToggle();
   });
 

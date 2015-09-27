@@ -78,4 +78,34 @@ feature 'user sees list of most popular episodes' do
       expect(page).to have_css(".episode", count: 2)
     end
   end
+
+  scenario 'only giant robots episodes' do
+    VCR.use_cassette('features/user_sees_list_of_most_popular_episodes') do
+      visit root_path
+
+      expect(page.status_code).to eq(200)
+
+      click_link 'Log In'
+
+      visit giant_robots_path
+      
+      expect(page).to have_xpath("//img[@src='http://simplecast-media.s3.amazonaws.com/podcast/image/271/1437963534-artwork.jpg']", count: 1)
+      expect(page).to have_css(".episode", count: 2)
+    end
+  end
+
+  scenario 'only bike shed episodes' do
+    VCR.use_cassette('features/user_sees_list_of_most_popular_episodes') do
+      visit root_path
+
+      expect(page.status_code).to eq(200)
+
+      click_link 'Log In'
+
+      visit the_bike_shed_path
+      
+      expect(page).to have_xpath("//img[@src='http://simplecast-media.s3.amazonaws.com/podcast/image/282/1433513863-artwork.jpg']", count: 1)
+      expect(page).to have_css(".episode", count: 2)
+    end
+  end
 end

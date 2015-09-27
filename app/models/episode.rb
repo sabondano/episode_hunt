@@ -19,6 +19,14 @@ class Episode < ActiveRecord::Base
     episode
   end
 
+  def self.order_by_popularity
+    joins(:votes)
+    .select("episodes.*, COUNT(votes.id) AS vote_count")
+    .group("episodes.id")
+    .order("vote_count DESC")
+    .to_a
+  end
+
   private
 
   def self.get_episode_data(podcast_id, title)

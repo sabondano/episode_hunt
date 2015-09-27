@@ -15,11 +15,7 @@ class EpisodesController < ApplicationController
 
   def all_episodes
     @podcasts = Podcast.all
-    @episodes = Episode.joins(:votes)
-                       .select("episodes.*, COUNT(votes.id) AS vote_count")
-                       .group("episodes.id")
-                       .order("vote_count DESC")
-                       .to_a
+    @episodes = Episode.order_by_popularity
 
     render :dashboard
   end
@@ -27,13 +23,23 @@ class EpisodesController < ApplicationController
   def ruby_rogues
     @podcasts   = Podcast.all
     ruby_rogues = Podcast.find_by(name: "Ruby Rogues")
-    @episodes   = ruby_rogues.episodes
-                             .joins(:votes)
-                             .select("episodes.*, COUNT(votes.id) AS vote_count")
-                             .group("episodes.id")
-                             .order("vote_count DESC")
-                             .to_a
+    @episodes   = ruby_rogues.episodes.order_by_popularity
 
+    render :dashboard
+  end
+
+  def giant_robots
+    @podcasts   = Podcast.all
+    giant_robots = Podcast.find_by(name: "Giant Robots Smashing into other Giant Robots Podcast")
+    @episodes   = giant_robots.episodes.order_by_popularity
+
+    render :dashboard
+  end 
+
+  def the_bike_shed
+    @podcasts   = Podcast.all
+    the_bike_shed = Podcast.find_by(name: "The Bike Shed")
+    @episodes   = the_bike_shed.episodes.order_by_popularity
     render :dashboard
   end
 

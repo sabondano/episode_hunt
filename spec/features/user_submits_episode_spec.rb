@@ -21,23 +21,24 @@ feature 'user submits episode', js: true do
   end
 
   scenario 'new episode' do
-    visit root_path
+      visit root_path
 
-    expect(page.status_code).to eq(200)
+      expect(page.status_code).to eq(200)
 
-    click_link 'Log In'
+      click_link 'Log In'
 
-    expect(current_path).to eq('/dashboard')
-    page.find('#show-episode-submission-form-icon').click
+      expect(current_path).to eq('/all-episodes')
+      page.find('#show-episode-submission-form-icon').click
 
-    select 'Ruby Rogues', from: 'podcast'
-    select '056 RR David Heinemeier Hansson', from: 'episode'
-    click_button 'Submit Episode'
+      select 'Ruby Rogues', from: 'podcast'
+      Capybara.default_wait_time
+      select '056 RR David Heinemeier Hansson', from: 'episode'
+      click_button 'Submit Episode'
 
-    expect(page).to have_css(".episode", count: 1)
-    expect(page).to have_content('Duration: 1:16:25')
+      expect(page).to have_css(".episode", count: 1)
+      expect(page).to have_content('Duration: 1:16:25')
 
-    audio_url = find(:css, 'source')[:src]
-    expect(audio_url).to eq('http://www.podtrac.com/pts/redirect.mp3/media.devchat.tv/ruby-rogues/RR056DHH.mp3?rss=true')
-  end
+      audio_url = find(:css, 'source')[:src]
+      expect(audio_url).to eq('http://www.podtrac.com/pts/redirect.mp3/media.devchat.tv/ruby-rogues/RR056DHH.mp3?rss=true')
+    end
 end

@@ -29,7 +29,7 @@ feature 'user logs in with twitter' do
 
       click_link 'Log In'
 
-      expect(current_path).to eq('/dashboard')
+      expect(current_path).to eq('/all-episodes')
       expect(page).to have_content('Sebastian')
 
       click_link 'Log out'

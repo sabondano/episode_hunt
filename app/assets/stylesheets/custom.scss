@@ -151,6 +151,15 @@ body {
   audio {
     margin-top: 20px;
   }
+  .btn-episode-user {
+    border: none;
+    background-color: transparent;
+
+  }
+  .episode-user {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 .episode-submission-form {

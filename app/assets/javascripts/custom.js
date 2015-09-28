@@ -21,4 +21,9 @@ $(document).on('ready page:load', function() {
       option.appendTo(episode); 
     });
   });
+
+  // Opt-in bootstrap tooltip
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 });

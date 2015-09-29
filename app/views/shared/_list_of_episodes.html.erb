@@ -1,0 +1,43 @@
+<% if @episodes.empty? %>
+  <div class="episode text-center text-muted">
+    You haven't submitted any episodes yet...
+  </div>
+<% else %>
+  <% @episodes.each do |episode| %>
+    <div class="episode">
+      <div class="row">
+        <div class="col-sm-1 upvotes">
+          <%= button_to vote_path(episode_id: episode.id), class: "btn btn-default btn-upvote" do %>
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            <span class="upvote-value"><%= episode.votes.count %></span>
+          <% end %>
+        </div>
+        <div class="col-sm-2">
+          <img class="thumbnail-podcast" src="<%= episode.podcast.image %>" style="height: 110px; width: 110px;">
+        </div>
+        <div class="col-sm-8">
+          <h3 class="episode-title">
+            <%= episode.title %>
+          </h3>
+          <span class="episode-details">
+            <strong>Published on:</strong> <%= episode.published_date %> |
+            <strong>Duration:</strong> <%= episode.duration %>
+          <audio controls>
+            <source src="<%= episode.audio_url %>" type="audio/mpeg">
+          </audio>
+          </span>
+        </div>
+        <div class="col-sm-1">
+          <a href="#"
+             class="btn btn-defaulta btn-episode-user"
+             data-toggle="tooltip"
+             data-placement="right"
+             title="<%= episode.user.name %>">
+             <img class="pull-right img-circle episode-user" src="<%= episode.user.profile_image_url %>">
+          </a>
+        </div>
+      </div>
+    </div> <!-- /episode -->
+  <% end %>
+<% end %>
+

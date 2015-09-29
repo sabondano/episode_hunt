@@ -3,11 +3,11 @@
     <%= image_tag "episode_hunt_logo_red.png", class: "logo" %>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <%= nav_link dashboard_path do %>
-            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Dashboard
+        <%= content_tag(:li, class: "#{'active' if current_page?(user_path(current_user))}") do %>
+          <%= link_to user_path(current_user) do %>
+            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> My Profile
           <% end %>
-        </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -30,25 +30,18 @@
 <nav class="navbar navbar-default subnavbar">
   <div class="container">
     <ul class="nav navbar-nav">
-      <li>
-        <%= nav_link all_episodes_path do %>
-          <% "All Episodes" %>
-        <% end %>
-      </li>
-      <li>
-        <%= nav_link ruby_rogues_path do %>
-          <% "Ruby Rogues" %>
-        <% end %>
-      </li>
-      <li>
-        <%= nav_link giant_robots_path do %>
-          <% "Giant Robots" %>
-        <% end %>
-      </li>
-      <li>
-        <%= nav_link the_bike_shed_path do %>
-          <% "The Bike Shed" %>
-        <% end %>
+      <%= nav_link all_episodes_path do %>
+        <% "All Episodes" %>
+      <% end %>
+      <%= nav_link ruby_rogues_path do %>
+        <% "Ruby Rogues" %>
+      <% end %>
+      <%= nav_link giant_robots_path do %>
+        <% "Giant Robots" %>
+      <% end %>
+      <%= nav_link the_bike_shed_path do %>
+        <% "The Bike Shed" %>
+      <% end %>
       </li>
     </ul>
   </div>

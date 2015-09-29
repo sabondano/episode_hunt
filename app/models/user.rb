@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
 
     user
   end
+
+  def upvoted_episodes
+    votes.map { |vote| vote.episode }
+  end
 end

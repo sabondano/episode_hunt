@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :users, only: [:show]
+  get '/users/:id/upvoted-episodes', to: 'users#show_upvoted_episodes', as: :user_upvoted
+
   get '/all-episodes', to: 'episodes#all_episodes'
   get '/get_episodes_data', to: 'episodes#get_episodes_data'
   get '/ruby-rogues', to: 'episodes#ruby_rogues'

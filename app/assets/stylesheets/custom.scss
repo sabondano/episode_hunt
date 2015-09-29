@@ -92,6 +92,9 @@ body {
   .stats {
     margin-top: 10px;
     margin-bottom: 5px;
+    a:hover {
+     text-decoration: none; 
+    }
     .first-stat-group {
       padding-left: 10px;
     }

@@ -1,0 +1,38 @@
+<div class="container container-dashboard">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="dashboard-profile-card">
+        <div class="row">
+          <div class="col-sm-12">
+            <img class="thumbnail avatar" src="<%= @user.profile_image_url %>"> 
+            <div class="user-fields">
+              <h4><%= @user.name %></h4>
+              <p class="text-muted screen-name">@<%= @user.screen_name %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row stats">
+          <div class="col-sm-4">
+            <div class="first-stat-group">
+              <%= link_to user_path(@user) do %>
+                <span class="stat-label">UPVOTED</span>
+                <span class="stat-value"><%= @user.votes.count %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <%= link_to user_path(@user) do %>
+              <span class="stat-label">SUBMITTED</span>
+              <span class="stat-value"><%= @user.episodes.count %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <%= render partial: 'shared/submission_form.html.erb' %>
+      <h6 class="text-muted">Upvoted Episodes:</h6>
+      <%= render partial: 'shared/list_of_episodes' %>
+    </div>
+  </div>
+

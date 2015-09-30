@@ -57,7 +57,7 @@ feature 'user can see upvoted episodes' do
 
     click_link 'Log In'
 
-    expect(current_path).to eq('/all-episodes')
+    expect(current_path).to eq('/episodes')
     expect(page).to have_css(".episode", count: 4) 
 
     first('.upvotes button').click

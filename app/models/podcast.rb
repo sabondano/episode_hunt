@@ -5,4 +5,7 @@ class Podcast < ActiveRecord::Base
     @service ||= PodcastService.new(feed_url)
   end
 
+  def most_popular_episodes
+    episodes.order_by_popularity
+  end
 end

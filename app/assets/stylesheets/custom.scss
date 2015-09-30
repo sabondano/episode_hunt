@@ -183,3 +183,15 @@ body {
     float: right;
   }
 }
+
+.podcast-suggestion-form {
+  padding-bottom: 45px;
+  #podcast_suggestion {
+    margin-bottom: 10px;
+  }
+  .btn-submit-podcast-suggestion {
+    background-color: rgba(255, 0, 24, 1);
+    color: white;
+    float: right;
+  }
+}

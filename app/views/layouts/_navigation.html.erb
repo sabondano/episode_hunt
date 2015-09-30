@@ -3,11 +3,12 @@
     <%= image_tag "episode_hunt_logo_red.png", class: "logo" %>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <%= content_tag(:li, class: "#{'active' if current_page?(user_path(current_user))}") do %>
-          <%= link_to user_path(current_user) do %>
-            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> My Profile
-          <% end %>
-        <% end %>
+        <%= content_tag(:li, 
+                        class: "#{'active' if current_page?(user_path(current_user))} #{'active' if current_page?(user_upvoted_path(current_user))}") do %>
+                        <%= link_to user_path(current_user) do %>
+                          <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> My Profile
+                        <% end %>
+                      <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -30,19 +31,14 @@
 <nav class="navbar navbar-default subnavbar">
   <div class="container">
     <ul class="nav navbar-nav">
-      <%= nav_link all_episodes_path do %>
-        <% "All Episodes" %>
+      <%= content_tag(:li, class: "#{'active' if current_page?(episodes_path)}") do %>
+        <%= link_to "All Episodes", episodes_path %>
       <% end %>
-      <%= nav_link ruby_rogues_path do %>
-        <% "Ruby Rogues" %>
+      <% @podcasts.each do |podcast| %>
+        <%= content_tag(:li, class: "#{'active' if current_page?(podcast_path(podcast))}") do %>
+          <%= link_to truncate(podcast.name, length: 15), podcast_path(podcast) %>
+        <% end %>
       <% end %>
-      <%= nav_link giant_robots_path do %>
-        <% "Giant Robots" %>
-      <% end %>
-      <%= nav_link the_bike_shed_path do %>
-        <% "The Bike Shed" %>
-      <% end %>
-      </li>
     </ul>
   </div>
 </nav>

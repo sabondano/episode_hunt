@@ -59,7 +59,7 @@ feature 'user sees list of most popular episodes' do
 
       click_link 'Log In'
 
-      expect(current_path).to eq('/all-episodes')
+      expect(current_path).to eq('/episodes')
       expect(page).to have_css(".episode", count: 4) 
     end
   end
@@ -71,8 +71,7 @@ feature 'user sees list of most popular episodes' do
       expect(page.status_code).to eq(200)
 
       click_link 'Log In'
-
-      visit ruby_rogues_path
+      click_link 'Ruby Rogues'
       
       expect(page).to have_xpath("//img[@src='https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg']", count: 1)
       expect(page).to have_css(".episode", count: 2)
@@ -86,8 +85,7 @@ feature 'user sees list of most popular episodes' do
       expect(page.status_code).to eq(200)
 
       click_link 'Log In'
-
-      visit giant_robots_path
+      click_link 'Giant Robots'
       
       expect(page).to have_xpath("//img[@src='http://simplecast-media.s3.amazonaws.com/podcast/image/271/1437963534-artwork.jpg']", count: 1)
       expect(page).to have_css(".episode", count: 2)
@@ -101,9 +99,8 @@ feature 'user sees list of most popular episodes' do
       expect(page.status_code).to eq(200)
 
       click_link 'Log In'
+      click_link 'The Bike Shed'
 
-      visit the_bike_shed_path
-      
       expect(page).to have_xpath("//img[@src='http://simplecast-media.s3.amazonaws.com/podcast/image/282/1433513863-artwork.jpg']", count: 1)
       expect(page).to have_css(".episode", count: 2)
     end

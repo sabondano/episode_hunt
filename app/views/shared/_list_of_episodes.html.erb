@@ -7,7 +7,7 @@
     <div class="episode">
       <div class="row">
         <div class="col-sm-1 upvotes">
-          <%= button_to vote_path(episode_id: episode.id), class: "btn btn-default btn-upvote" do %>
+          <%= button_to votes_path(episode_id: episode.id), class: "btn btn-default btn-upvote" do %>
             <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
             <span class="upvote-value"><%= episode.votes.count %></span>
           <% end %>

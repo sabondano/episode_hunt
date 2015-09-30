@@ -27,7 +27,7 @@ feature 'user submits episode', js: true do
 
     click_link 'Log In'
 
-    expect(current_path).to eq('/all-episodes')
+    expect(current_path).to eq('/episodes')
     page.find('#show-episode-submission-form-icon').click
 
     select 'Ruby Rogues', from: 'podcast'

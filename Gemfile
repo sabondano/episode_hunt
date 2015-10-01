@@ -21,6 +21,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'sinatra'
 gem 'sidekiq'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'

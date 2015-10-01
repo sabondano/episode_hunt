@@ -17,6 +17,10 @@ class ItunesService
     parse(podcast_data)[:results].first[:artworkUrl600]
   end
 
+  def found_match?
+    parse(podcast_data)[:resultCount] == 1
+  end
+
   private
 
   def parse(response)

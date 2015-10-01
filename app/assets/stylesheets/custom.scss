@@ -195,3 +195,20 @@ body {
     float: right;
   }
 }
+
+.suggestions {
+  border: 1px solid #e1e8ed;
+  background: #FFF;
+  border-radius: 6px; 
+  margin-top: 10px;
+  .suggestions-headline {
+    margin-left: 10px;
+  }
+  .no-pending-suggestions-label {
+    margin-left: 10px;
+  }
+}
+
+.alert-success-suggestion {
+  margin-top: 10px;
+}

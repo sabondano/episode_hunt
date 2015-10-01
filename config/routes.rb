@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :podcasts,            only: [:show, :new, :create]
   resources :episodes,            only: [:index, :create]
   resources :votes,               only: [:create]
-  resources :podcast_suggestions, only: [:create]
+  resources :podcast_suggestions, only: [:create, :update]
 
   get '/get_episodes_data', to: 'episodes#get_episodes_data'
 

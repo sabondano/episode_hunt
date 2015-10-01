@@ -32,6 +32,7 @@ feature 'user submits episode', js: true do
 
     select 'Ruby Rogues', from: 'podcast'
     Capybara.default_wait_time
+    Capybara.default_wait_time
     select '056 RR David Heinemeier Hansson', from: 'episode'
     click_button 'Submit Episode'
 

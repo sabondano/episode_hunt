@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930040417) do
+ActiveRecord::Schema.define(version: 20150930174033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20150930040417) do
 
   create_table "podcast_suggestions", force: :cascade do |t|
     t.string   "suggestion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "pending"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "podcasts", force: :cascade do |t|
@@ -54,8 +55,9 @@ ActiveRecord::Schema.define(version: 20150930040417) do
     t.string   "profile_image_url"
     t.string   "oauth_token"
     t.string   "oauth_token_secret"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "role",               default: 0
   end
 
   create_table "votes", force: :cascade do |t|

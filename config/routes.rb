@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web, at: '/sidekiq'
+
   get '/users/:id/upvoted-episodes', to: 'users#show_upvoted_episodes', as: :user_upvoted
 
   resources :users,               only: [:show]

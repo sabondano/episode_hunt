@@ -19,6 +19,8 @@ gem 'hurley'
 gem 'newrelic_rpm'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'sinatra'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'

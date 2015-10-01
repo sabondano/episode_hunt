@@ -14,8 +14,7 @@ class Episode < ActiveRecord::Base
                              audio_url:      episode["enclosure"]["url"],
                              user_id:        user_id,
                              podcast_id:     podcast_id)
-    Vote.create(episode_id: episode.id,
-                user_id:    user_id)
+    CreateVoteJob.perform_later(episode.id, user_id)
     episode
   end
 

@@ -1,7 +1,7 @@
 <div class="suggestions">
   <div class="row">
     <div class="col-sm-12">
-      <h6 class="text-muted suggestions-headline">Podcasts Suggestions</h6>
+      <h6 class="text-muted suggestions-headline">Podcast Suggestions</h6>
       <% if @podcast_suggestions.empty? %>
         <p class="text-muted no-pending-suggestions-label">
         <small>
@@ -41,8 +41,8 @@ $(".suggestions .btn-approve").on("click", function() {
   }
 
   function showError(error) {
-    $('<div class="alert alert-success alert-success-suggestion" role="alert">' + error + '</div>').appendTo(".col-sm-3");
-    setTimeout( function() { $(".alert-success").fadeOut(); }, 5000);
+    $('<div class="alert alert-danger alert-success-suggestion" role="alert">' + error + '</div>').appendTo(".col-sm-3");
+    setTimeout( function() { $(".alert-danger").fadeOut(); }, 5000);
   }
 
   btnClicked = $(this);

@@ -1,0 +1,20 @@
+<% if @users.empty? %>
+  <div class="episode text-center text-muted">
+    There's no other users yet...
+  </div>
+<% else %>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+      <div class="episode">
+        <div class="row">
+          <div class="col-sm-1">
+            <img class="img-circle" src="<%= user.profile_image_url %>">
+          </div> 
+          <div class="col-sm-4">
+            <h3 class="user-name"><%= user.name %></h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

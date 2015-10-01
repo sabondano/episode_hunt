@@ -2,7 +2,7 @@ class PodcastsController < ApplicationController
   def show
     @podcasts   = Podcast.first(6)
     podcast     = Podcast.find(params[:id])
-    @episodes   = podcast.most_popular_episodes
+    @episodes   = podcast.most_popular_episodes.paginate(page: params[:page], per_page: 5)
   end
 
   def new

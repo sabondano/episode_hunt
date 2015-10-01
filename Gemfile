@@ -17,6 +17,8 @@ gem 'figaro'
 gem 'hurley'
 
 gem 'newrelic_rpm'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug'

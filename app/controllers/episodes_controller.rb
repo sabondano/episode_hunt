@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
 
   def index
     @podcasts = Podcast.first(6)
-    @episodes = Episode.order_by_popularity
+    @episodes = Episode.order_by_popularity.paginate(page: params[:page], per_page: 5)
   end
 
   def create

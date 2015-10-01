@@ -5,6 +5,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'sidekiq/testing'
 
 ActiveRecord::Migration.maintain_test_schema!
 

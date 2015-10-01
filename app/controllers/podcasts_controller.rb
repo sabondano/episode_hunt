@@ -1,4 +1,10 @@
 class PodcastsController < ApplicationController
+  
+  def index
+    @all_podcasts = Podcast.all
+    @podcasts     = @all_podcasts.first(6)
+  end
+
   def show
     @podcasts   = Podcast.first(6)
     podcast     = Podcast.find(params[:id])

@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   get '/users/:id/upvoted-episodes', to: 'users#show_upvoted_episodes', as: :user_upvoted
 
-  resources :users,               only: [:show]
-  resources :podcasts,            only: [:show, :new, :create]
+  resources :users,               only: [:index, :show]
+  resources :podcasts,            only: [:index, :show, :new, :create]
   resources :episodes,            only: [:index, :create]
   resources :votes,               only: [:create]
   resources :podcast_suggestions, only: [:create, :update]

@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :authorize! 
 
+  def index
+    @podcasts = Podcast.first(6)
+    @users    = User.all
+  end
+
   def show
     @podcasts = Podcast.first(6)
     @user     = User.find(params[:id])

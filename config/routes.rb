@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show]
   get '/users/:id/upvoted-episodes', to: 'users#show_upvoted_episodes', as: :user_upvoted
 
-  resources :podcasts, only: [:show]
-  resources :episodes, only: [:index, :create]
-  resources :votes,    only: [:create]
+  resources :users,               only: [:show]
+  resources :podcasts,            only: [:show, :new, :create]
+  resources :episodes,            only: [:index, :create]
+  resources :votes,               only: [:create]
+  resources :podcast_suggestions, only: [:create, :update]
 
   get '/get_episodes_data', to: 'episodes#get_episodes_data'
 

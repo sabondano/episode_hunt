@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @podcasts = Podcast.all
     @user     = User.find(params[:id])
     @episodes = @user.episodes
+    @podcast_suggestions = PodcastSuggestion.where(status: "pending")
   end
 
   def show_upvoted_episodes

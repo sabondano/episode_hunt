@@ -183,3 +183,32 @@ body {
     float: right;
   }
 }
+
+.podcast-suggestion-form {
+  padding-bottom: 45px;
+  #podcast_suggestion {
+    margin-bottom: 10px;
+  }
+  .btn-submit-podcast-suggestion {
+    background-color: rgba(255, 0, 24, 1);
+    color: white;
+    float: right;
+  }
+}
+
+.suggestions {
+  border: 1px solid #e1e8ed;
+  background: #FFF;
+  border-radius: 6px; 
+  margin-top: 10px;
+  .suggestions-headline {
+    margin-left: 10px;
+  }
+  .no-pending-suggestions-label {
+    margin-left: 10px;
+  }
+}
+
+.alert-success-suggestion {
+  margin-top: 10px;
+}

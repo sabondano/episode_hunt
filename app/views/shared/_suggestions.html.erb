@@ -1,0 +1,88 @@
+<div class="suggestions">
+  <div class="row">
+    <div class="col-sm-12">
+      <h6 class="text-muted suggestions-headline">Podcasts Suggestions</h6>
+      <% if @podcast_suggestions.empty? %>
+        <p class="text-muted no-pending-suggestions-label">
+        <small>
+          0 suggestions pending at this time.
+        </small>
+        </p>
+      <% else %>
+        <table class="table table-hover">
+          <% @podcast_suggestions.each do |podcast_suggestion| %>
+            <tr>
+              <td>
+                <small><%= truncate(podcast_suggestion.suggestion) %></small>
+              </td>
+              <td class="text-right">
+                <button id="<%= podcast_suggestion.id %>"
+                        type="button" class="btn btn-default btn-xs btn-approve" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+                <button id="<%= podcast_suggestion.id %>"
+                        class="btn btn-default btn-xs btn-reject" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+// Approves podcast suggestion
+$(".suggestions .btn-approve").on("click", function() { 
+  function showSuccess() { 
+    $('<div class="alert alert-success alert-success-suggestion" role="alert">Successfully approved!</div>').appendTo(".col-sm-3");
+    setTimeout( function() { $(".alert-success").fadeOut(); }, 5000);
+  }
+
+  function showError(error) {
+    $('<div class="alert alert-success alert-success-suggestion" role="alert">' + error + '</div>').appendTo(".col-sm-3");
+    setTimeout( function() { $(".alert-success").fadeOut(); }, 5000);
+  }
+
+  btnClicked = $(this);
+  $.ajax({
+    type: "POST",
+    url: "<%= podcasts_path %>",
+    data: { podcast_suggestion_id: this.id },
+    success: function() { 
+      btnClicked.closest("tr").slideUp(1000);
+      showSuccess();
+    },
+    error: function(response) { 
+      showError(response.responseText);
+    }
+  });
+});
+
+// Rejects podcast suggestion
+$(".suggestions .btn-reject").on("click", function() {
+  function showSuccess() {
+    $('<div class="alert alert-success alert-success-suggestion" role="alert">Suggestion rejected successfully.</div>').appendTo(".col-sm-3");
+    setTimeout( function() { $(".alert-success").fadeOut(); }, 5000);
+  }
+
+  function showError(error) {
+    $('<div class="alert alert-success alert-success-suggestion" role="alert">' + error + '</div>').appendTo(".col-sm-3");
+    setTimeout( function() { $(".alert-success").fadeOut(); }, 5000);
+  }
+
+  btnClicked = $(this);
+  $.ajax({
+    type: "PUT",
+    url: "/podcast_suggestions/" + this.id,
+    success: function() { 
+      btnClicked.closest("tr").slideUp(1000);
+      showSuccess();
+    },
+    error: function(response) { 
+      showError(response.responseText);
+    }
+  });
+});
+</script>

@@ -2,7 +2,7 @@ class EpisodesController < ApplicationController
   before_action :authorize!
 
   def index
-    @podcasts = Podcast.all
+    @podcasts = Podcast.first(6)
     @episodes = Episode.order_by_popularity
   end
 

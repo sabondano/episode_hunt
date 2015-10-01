@@ -28,6 +28,7 @@
 
 body {
   background-color: #fdf7f7;
+  height: 100%;
 }
 
 .navbar-dashboard {
@@ -211,4 +212,13 @@ body {
 
 .alert-success-suggestion {
   margin-top: 10px;
+}
+
+#footer {
+  margin-top: 60px;
+  height: 60px;
+  #signature {
+    color: #8c9ca9;
+    opacity: 0.6;
+  }
 }
